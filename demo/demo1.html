@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>制作一个简单的菜单动画效果</title>
+		<script type="text/javascript" src="../js/jquery3.2.1.min.js" ></script>
+		<style type="text/css">
+			div{
+				font-size: 20px;
+				text-align: center;
+				height: 35px;
+				font-weight: bold;
+			}
+			.div_tit{
+				position: relative;
+			}
+			.div_tit>span{
+				display: inline-block;
+				height: 30px;
+				position: absolute;
+				top: 0px;
+				left: 50%;
+				transform: translateX(-50%);
+			}
+			.title{
+				width: 100px;
+			}
+			.line{
+				width: 0px;	
+				border-bottom: 1px solid blue;
+			}
+			.title,.line{
+				transition: all .8s;		
+			}
+			#btn{
+				width: 100px;
+				height: 30px;
+				background-color: #ffffff;
+				border-radius: 10px;
+				-webkit-border-radius: 10px;
+				-moz-border-radius: 10px;
+				border: 1px solid #999999;
+				font-weight: bold;
+				outline: none;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="div_tit">
+			<span class="title">前端学院</span>
+			<span class="line"></span>
+		</div>
+		<div>
+			<button id="btn">切换样式</button>
+		</div>
+	</body>
+	<script type="text/javascript">
+		$(function(){
+			var btn=$("#btn");
+			var title=$(".title");
+			var line=title.next();
+			btn.click(function(){
+				var line_width=parseInt(line.css("width"));
+				if(line_width===0){
+					line.css("width","100px");
+					title.css("color","blue");
+				}else if(line_width===100){
+					line.css("width","0px");
+					title.css("color","black");
+				}
+			});
+		});
+	</script>
+</html>
